@@ -10,19 +10,34 @@ public class LogAnalyzer
     private int[] hourCounts;
     // Use a LogfileReader to access the data.
     private LogfileReader reader;
-
+    
+    private double[] marks;
+    
     /**
      * Create an object to analyze hourly web accesses.
      */
-    public LogAnalyzer()
+    public LogAnalyzer(String filename)
     { 
         // Create the array object to hold the hourly
         // access counts.
         hourCounts = new int[24];
         // Create the reader to obtain the data.
-        reader = new LogfileReader();
+        reader = new LogfileReader(filename);
     }
-
+    
+    /**
+    *number 13   
+    * Return the number of accesses recorded in the log file. */ 
+    public int numberOfAccesses() { 
+        int total = 0;
+        // Add the value in each element of hourCounts to // total. ...
+        for( int counts : hourCounts)
+        {
+            total+=counts;
+        }
+        return total; 
+    }
+    
     /**
      * Analyze the hourly access data from the log file.
      */
@@ -47,6 +62,55 @@ public class LogAnalyzer
             System.out.println(hour + ": " + hourCounts[hour]);
         }
     }
+
+    /**
+     * Code for #10
+     */
+    public void printHourlyCounts2()
+    {
+        System.out.println("Hr: Count");
+        int hour = 0;
+        while(hour < hourCounts.length) {
+            System.out.println(hour + ": " + hourCounts[hour]);
+            hour++;
+        }
+    }
+    
+       /** * Print all the values in the marks array that are greater than mean.
+     * @param marks An array of mark values.
+     * @param mean The mean (average) mark. */ 
+        public void printGreater(double mean) { 
+        double[] marks= {1.1, 5.7, 6.6, 9.2,18.4};
+        for(int index = 0; index < marks.length; index++) {
+            if(marks[index] > mean) {
+                System.out.println(marks[index]);
+            } 
+        } 
+    }
+    
+    /**
+     * number 15
+     */
+    public void busiestHour()
+    {
+        
+    }
+    
+    /**
+     * number 16
+     */
+    public void quietestHour()
+    {
+        
+    }
+    
+    /**
+     * number 18
+     */
+    private void busiestTwoPeriod()
+    {
+    
+    }
     
     /**
      * Print the lines of data read by the LogfileReader
@@ -55,4 +119,21 @@ public class LogAnalyzer
     {
         reader.printData();
     }
+    /**
+     * 1. It is 18,with 237
+     * 2. 
+     * 3.
+     * 4. it is used in the two methods analyzeHourlyData() and printHourlyCounts()
+     * 5. int[] counts; / boolean[] occupied; 
+     * 6. a) b) c)
+     * 7. 20
+     * 8. double[] prices = new double[50];
+     * 9. an error appears saying the index is out of bounds for the length 24
+     * 17.
+     * 
+     * 
+     * 
+     *
+     */
 }
+
