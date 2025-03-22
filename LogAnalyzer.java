@@ -91,25 +91,51 @@ public class LogAnalyzer
     /**
      * number 15
      */
-    public void busiestHour()
+    public int busiestHour()
     {
-        
+        int maxCount = 0;
+        int busiestHour = 0;
+        for(int i = 0; i < hourCounts.length; i++){
+            if (hourCounts[i] > maxCount) {
+                maxCount = hourCounts[i];
+                busiestHour = i;
+            }
+        }
+        return busiestHour;
     }
     
-    /**
+     /**
      * number 16
-     */
-    public void quietestHour()
+        */
+    public int quietestHour()
     {
-        
+        int minCount = Integer.MAX_VALUE;
+        int quietestHour = 0;
+        for (int i = 0; i < hourCounts.length; i++){
+            if (hourCounts[i] < minCount) {
+                minCount = hourCounts[i];
+                quietestHour = i;
+            }
+        }
+        return quietestHour;
     }
+    
     
     /**
      * number 18
      */
-    private void busiestTwoPeriod()
+    public int busiestTwoHour2()
     {
-    
+        int maxSum = 0;
+        int busiestStartHour = 0;
+        for (int i = 0; i < hourCounts.length - 1;i++){
+            int twoHourSum = hourCounts[i] + hourCounts[i+1];
+            if(twoHourSum > maxSum){
+                maxSum = twoHourSum;
+                busiestStartHour = i;
+            }
+        }
+        return busiestStartHour;
     }
     
     /**
@@ -121,19 +147,15 @@ public class LogAnalyzer
     }
     /**
      * 1. It is 18,with 237
-     * 2. 
-     * 3.
+     * 2. Person[] people;
+     * 3. Boolean[] vacant;
      * 4. it is used in the two methods analyzeHourlyData() and printHourlyCounts()
      * 5. int[] counts; / boolean[] occupied; 
-     * 6. a) b) c)
-     * 7. 20
+     * 6. a) readings = new double[60] b) urls = new String[90] c) machines = new TicketMachine[5]
+     * 7. none
      * 8. double[] prices = new double[50];
      * 9. an error appears saying the index is out of bounds for the length 24
-     * 17.
-     * 
-     * 
-     * 
-     *
+     * 17. The hour that appears first with the largest count
      */
 }
 
